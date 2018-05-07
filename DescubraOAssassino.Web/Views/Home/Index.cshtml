@@ -1,0 +1,97 @@
+@{
+    string version = typeof(DescubraOAssassino.Web.RouteConfig).Assembly.GetName().Version.ToString();
+    string webApiEndPoint = System.Configuration.ConfigurationManager.AppSettings["WebApiEndPoint"];
+    string currentRoute = "/";
+
+    foreach (string key in HttpContext.Current.Request.QueryString.AllKeys)
+    {
+      if (key == "CurrentRoute")
+      {
+        currentRoute = HttpContext.Current.Request.QueryString[key];
+        break;
+      }
+    }
+
+    string runMode = DescubraOAssassino.Web.Properties.Settings.Default.RunMode;
+
+    IEnumerable<string> fileEntries = Enumerable.Empty<string>();
+
+    List<string> bundles = new List<string>();
+
+    if (runMode == "WEBAPI")
+    { 
+      Response.Write("running web api mode");
+    }else{
+      fileEntries = Directory.EnumerateFiles(Server.MapPath("~/dist"));
+      bundles.Add("inline.");
+      bundles.Add("polyfills");
+      bundles.Add("styles.");
+      bundles.Add("vendor.");
+      bundles.Add("main.");
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Descubra o Assassino</title>
+  <link rel="icon" type="image/x-icon" href="~/dist/favicon.ico">
+
+  <base href="/">
+  
+  <script>
+     history.pushState({}, null, "@currentRoute");
+  </script>
+
+</head>
+<body>
+
+  
+
+  @if (runMode == "WEBAPI")
+  {
+    return;
+  }
+
+  <app-root imagesDirectory="dist" webApiEndPoint="@webApiEndPoint">Loading @version</app-root>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  @if (HttpContext.Current.IsDebuggingEnabled)
+  {
+    <script src="~/dist/runtime.js?v=@version"></script>
+    <script src="~/dist/polyfills.js?v=@version"></script>
+    <script src="~/dist/styles.js?v=@version"></script>
+    <script src="~/dist/vendor.js?v=@version"></script>
+    <script src="~/dist/main.js?v=@version"></script>
+  }
+  else
+  {
+    foreach (string bundleName in bundles)
+    {
+      foreach (string fileName in fileEntries)
+      {
+        FileInfo fileInfo = new FileInfo(fileName);
+        if (fileInfo.Name.Contains(bundleName) && fileInfo.Name.Contains(".map") == false)
+        {
+          if (fileInfo.Name.Contains("styles"))
+          {
+            <link href="~/dist/@fileInfo.Name" rel="stylesheet" />
+          }
+          else
+          {
+            <script src="~/dist/@fileInfo.Name"></script>
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+</body>
+</html>
