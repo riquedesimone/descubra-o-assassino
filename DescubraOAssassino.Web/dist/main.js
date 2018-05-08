@@ -63,7 +63,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes)],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes, { useHash: true })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -327,7 +327,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row text-center\">\n  <div class=\"col-sm-12\">\n    <h1></h1>\n    <p>\n      O empresário Sean Bean foi assassinado e o corpo dele foi deixado na frente da delegacia de polícia. O Inspetor Jacques\nClouseau foi escolhido para investigar este caso. Após uma série de investigações, ele organizou uma lista com\nprováveis assassinos, os locais do crime e quais armas poderiam ter sido utilizadas.\n    </p>\n    <a href=\"/descubra\" class=\"btn btn-success\">Descubra o Assassino!</a>\n  </div>\n</div>"
+module.exports = "<div class=\"row text-center\">\n  <div class=\"col-sm-12\">\n    <h1></h1>\n    <p>\n      O empresário Sean Bean foi assassinado e o corpo dele foi deixado na frente da delegacia de polícia. O Inspetor Jacques\nClouseau foi escolhido para investigar este caso. Após uma série de investigações, ele organizou uma lista com\nprováveis assassinos, os locais do crime e quais armas poderiam ter sido utilizadas.\n    </p>\n    <a href=\"#/descubra\" class=\"btn btn-success\">Descubra o Assassino!</a>\n  </div>\n</div>"
 
 /***/ }),
 
