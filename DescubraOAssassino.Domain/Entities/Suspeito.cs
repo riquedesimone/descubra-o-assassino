@@ -1,4 +1,6 @@
-﻿using DescubraOAssassino.Domain.Entities.Base;
+﻿using System;
+using DescubraOAssassino.Domain.Arguments.Suspeito;
+using DescubraOAssassino.Domain.Entities.Base;
 
 namespace DescubraOAssassino.Domain.Entities
 {
@@ -14,6 +16,11 @@ namespace DescubraOAssassino.Domain.Entities
 
         public Suspeito(int id, string nome) : base(id, nome)
         {
+        }
+
+        public static explicit operator Suspeito(SuspeitoResponse v)
+        {
+            return new Suspeito(v.Id, v.Nome);
         }
     }
 }

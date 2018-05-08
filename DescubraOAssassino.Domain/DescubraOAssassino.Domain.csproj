@@ -49,6 +49,10 @@
     <Compile Include="Arguments\Arma\AdicionarArmaResponse.cs" />
     <Compile Include="Arguments\Arma\ArmaResponse.cs" />
     <Compile Include="Arguments\Base\ResponseBase.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarCrimeRequest.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarCrimeResponse.cs" />
+    <Compile Include="Arguments\Jogo\AllResponse.cs" />
+    <Compile Include="Arguments\Jogo\CrimeResponse.cs" />
     <Compile Include="Arguments\Jogo\TeoriaRequest.cs" />
     <Compile Include="Arguments\Jogo\TeoriaResponse.cs" />
     <Compile Include="Arguments\Local\AdicionarLocalRequest.cs" />
@@ -62,16 +66,19 @@
     <Compile Include="Arguments\Suspeito\AlterarSuspeitoResponse.cs" />
     <Compile Include="Arguments\Suspeito\SuspeitoResponse.cs" />
     <Compile Include="Entities\Arma.cs" />
+    <Compile Include="Entities\Base\EntityGuidBase.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />
     <Compile Include="Entities\Crime.cs" />
     <Compile Include="Entities\Local.cs" />
     <Compile Include="Entities\Suspeito.cs" />
     <Compile Include="EnumSituacaoJogo.cs" />
     <Compile Include="Inferfaces\Repositories\Base\IRepositoryBase.cs" />
+    <Compile Include="Inferfaces\Repositories\IRepositoryCrime.cs" />
     <Compile Include="Inferfaces\Repositories\IRepositoryLocal.cs" />
     <Compile Include="Inferfaces\Repositories\IRepositorySuspeito.cs" />
     <Compile Include="Inferfaces\Repositories\IRepositoryArma.cs" />
     <Compile Include="Inferfaces\Services\Base\IServiceBase.cs" />
+    <Compile Include="Inferfaces\Services\IServiceCrime.cs" />
     <Compile Include="Inferfaces\Services\IServiceArma.cs" />
     <Compile Include="Inferfaces\Services\IServiceSuspeito.cs" />
     <Compile Include="Inferfaces\Services\IServiceLocal.cs" />
@@ -81,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Message.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ServiceCrime.cs" />
     <Compile Include="Services\ServiceLocal.cs" />
     <Compile Include="Services\ServiceArma.cs" />
     <Compile Include="Services\ServiceSuspeito.cs" />

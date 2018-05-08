@@ -8,13 +8,13 @@ using System.Linq.Expressions;
 
 namespace DescubraOAssassino.Infra.Persistence.Repositories.Base
 {
-    public class RepositoryGuidBase<TEntity, TId> : IRepositoryBase<TEntity, TId>
-        where TEntity : EntityGuidBase
+    public class RepositoryBase<TEntity, TId> : IRepositoryBase<TEntity, TId>
+        where TEntity : EntityBase
         where TId : struct
     {
         private readonly DbContext _context;
 
-        public RepositoryGuidBase(DbContext context)
+        public RepositoryBase(DbContext context)
         {
             _context = context;
         }

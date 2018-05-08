@@ -1,4 +1,6 @@
-﻿using DescubraOAssassino.Domain.Entities.Base;
+﻿using System;
+using DescubraOAssassino.Domain.Arguments.Local;
+using DescubraOAssassino.Domain.Entities.Base;
 
 namespace DescubraOAssassino.Domain.Entities
 {
@@ -14,6 +16,11 @@ namespace DescubraOAssassino.Domain.Entities
 
         public Local(int id, string nome) : base(id, nome)
         {
+        }
+
+        public static explicit operator Local(LocalResponse v)
+        {
+            return new Local(v.Id, v.Nome);
         }
     }
 }

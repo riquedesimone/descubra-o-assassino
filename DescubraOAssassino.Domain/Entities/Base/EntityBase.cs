@@ -18,6 +18,7 @@ namespace DescubraOAssassino.Domain.Entities.Base
         }
 
         public int Id { get; private set; }
+       
         public string Nome { get; private set; }
 
         public void Alterar(string nome)

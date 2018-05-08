@@ -9,12 +9,13 @@ namespace DescubraOAssassino.Infra.Persistence
         public DescubraOAssassinoContext() : base("DescubraOAssassino")
         {
             Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         public IDbSet<Arma> Armas { get; set; }
         public IDbSet<Suspeito> Suspeitos { get; set; }
         public IDbSet<Local> Locais { get; set; }
+        public IDbSet<Crime> Crimes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

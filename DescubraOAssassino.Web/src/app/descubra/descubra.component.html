@@ -1,0 +1,44 @@
+<div *ngIf="status != 0">
+  <div class="row text-center">
+    <div class="col-sm-12">
+      <div class="col-md-4" *ngIf="suspeitos?.length">
+        <h2>Suspeitos</h2>
+        <div class="list-group">
+          <a *ngFor="let item of suspeitos" href="javascript:void(0);" (click)="setSuspeito(item)" class="list-group-item" [ngClass]="{'active':currentSuspeito == item}">{{item.Nome}}</a>
+        </div>
+      </div>
+      <div class="col-md-4" *ngIf="armas?.length">
+        <h2>Armas</h2>
+        <div class="list-group">
+            <a *ngFor="let item of armas" href="javascript:void(0);" (click)="setArma(item)" class="list-group-item" [ngClass]="{'active':currentArma == item}">{{item.Nome}}</a>
+          </div>
+      </div>
+      <div class="col-md-4" *ngIf="locais?.length">
+        <h2>Local</h2>
+        <div class="list-group">
+            <a *ngFor="let item of locais" href="javascript:void(0);" (click)="setLocal(item)" class="list-group-item" [ngClass]="{'active':currentLocal == item}">{{item.Nome}}</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center" *ngIf="message?.length">
+      <div class="col-sm-12">
+        <div class="alert" [ngClass]="{'alert-success': status==0, 'alert-danger': status!=0}">{{message}}</div>
+      </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-sm-12">
+      <button (click)="checarTeoria()" class="btn btn-success" [disabled]="IsValid()">Enviar teoria!</button>  
+    </div>
+  </div>
+</div>
+<div *ngIf="status==0">
+  <div class="row text-center">
+    <div class="jumbotron">
+      <p>{{message}}</p>
+    <div class="col-sm-12">
+        <button (click)="novoJogo()" class="btn btn-success">Investigar um novo crime?!</button>  
+      </div>
+    </div>
+  </div>
+</div>

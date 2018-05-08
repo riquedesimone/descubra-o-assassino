@@ -54,12 +54,19 @@
     <Compile Include="Migrations\201805051852455_CreateDataBase.Designer.cs">
       <DependentUpon>201805051852455_CreateDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805080153417_CriaTabelaCrime.cs" />
+    <Compile Include="Migrations\201805080153417_CriaTabelaCrime.Designer.cs">
+      <DependentUpon>201805080153417_CriaTabelaCrime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\DescubraOAssassinoContext.cs" />
     <Compile Include="Persistence\Map\MapLocal.cs" />
+    <Compile Include="Persistence\Map\MapCrime.cs" />
     <Compile Include="Persistence\Map\MapSuspeito.cs" />
     <Compile Include="Persistence\Map\MapArma.cs" />
+    <Compile Include="Persistence\Repositories\Base\RepositoryGuidBase.cs" />
     <Compile Include="Persistence\Repositories\Base\RepositoryBase.cs" />
+    <Compile Include="Persistence\Repositories\RepositoryCrime .cs" />
     <Compile Include="Persistence\Repositories\RepositoryLocal.cs" />
     <Compile Include="Persistence\Repositories\RepositoryArma.cs" />
     <Compile Include="Persistence\Repositories\RepositorySuspeito.cs" />
@@ -80,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805051852455_CreateDataBase.resx">
       <DependentUpon>201805051852455_CreateDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805080153417_CriaTabelaCrime.resx">
+      <DependentUpon>201805080153417_CriaTabelaCrime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

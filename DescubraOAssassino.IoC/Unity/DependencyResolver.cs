@@ -24,7 +24,7 @@ namespace DescubraOAssassino.IoC.Unity
             container.RegisterType<IServiceSuspeito, ServiceSuspeito>(new HierarchicalLifetimeManager());
             container.RegisterType<IServiceLocal, ServiceLocal>(new HierarchicalLifetimeManager());
             container.RegisterType<IServiceArma, ServiceArma>(new HierarchicalLifetimeManager());
-
+            container.RegisterType<IServiceCrime, ServiceCrime>(new HierarchicalLifetimeManager());
 
 
             //Repository
@@ -33,7 +33,7 @@ namespace DescubraOAssassino.IoC.Unity
             container.RegisterType<IRepositorySuspeito, RepositorySuspeito>(new HierarchicalLifetimeManager());
             container.RegisterType<IRepositoryLocal, RepositoryLocal>(new HierarchicalLifetimeManager());
             container.RegisterType<IRepositoryArma, RepositoryArma>(new HierarchicalLifetimeManager());
-
+            container.RegisterType<IRepositoryCrime, RepositoryCrime>(new HierarchicalLifetimeManager());
         }
     }
 }

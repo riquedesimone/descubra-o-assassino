@@ -29,6 +29,8 @@ namespace DescubraOAssassino.Domain.Inferfaces.Repositories.Base
 
         void Remover(TEntity entidade);
 
+        void SaveChanges();
+
         IEnumerable<TEntity> AdicionarLista(IEnumerable<TEntity> entidades);
     }
 }
